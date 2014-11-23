@@ -167,12 +167,14 @@
     
     // Move and loop the clouds.
     for (CCNode *cloud in _clouds) {
-        cloud.position = ccp(cloud.position.x - (character.physicsBody.velocity.x * delta), cloud.position.y);
+        // Make the clouds float, vary its height by \pm 0.1 cloud y position.
+        float newPosition;
+        newPosition = cloud.position.y + sin(character.physicsBody.velocity.x * delta) * cloud.position.y;
+        cloud.position = ccp(cloud.position.x - (character.physicsBody.velocity.x * delta), newPosition);
+        
+        // Loop the cloud if its out of the screen.
         if (cloud.position.x <= (-1 * cloud.contentSize.width)) {
-            // Make the clouds float, vary its height by \pm 0.1 cloud y position.
-            float newPosition;
-            newPosition = cloud.position.y + sin(character.physicsBody.velocity.x * delta) * cloud.position.y;
-            cloud.position = ccp(cloud.position.x + 2 * cloud.contentSize.width, newPosition);
+            cloud.position = ccp(cloud.position.x + 2 * cloud.contentSize.width, cloud.position.y);
         }
     }
     
