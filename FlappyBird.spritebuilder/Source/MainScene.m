@@ -187,7 +187,7 @@
             if (!offScreenObstacles) {
                 offScreenObstacles = [NSMutableArray array];
             }
-            [offScreenObstacles addObject:obstacle];
+//            [offScreenObstacles addObject:obstacle];
         }
     }
     
