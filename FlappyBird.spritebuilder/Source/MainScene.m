@@ -169,7 +169,7 @@
     for (CCNode *cloud in _clouds) {
         // Make the clouds float, vary its height by \pm 0.1 cloud y position.
         float newPosition;
-        newPosition = cloud.position.y + 0.001 * sin(10 * character.physicsBody.velocity.x * delta) * cloud.position.y;
+        newPosition = cloud.position.y + 0.001 * sin(2 * character.physicsBody.velocity.x * delta) * cloud.position.y;
         cloud.position = ccp(cloud.position.x - (character.physicsBody.velocity.x * delta), newPosition);
         
         // Loop the cloud if its out of the screen.
@@ -187,7 +187,7 @@
             if (!offScreenObstacles) {
                 offScreenObstacles = [NSMutableArray array];
             }
-//            [offScreenObstacles addObject:obstacle];
+            [offScreenObstacles addObject:obstacle];
         }
     }
     
