@@ -170,7 +170,8 @@
         cloud.position = ccp(cloud.position.x - (character.physicsBody.velocity.x * delta), cloud.position.y);
         if (cloud.position.x <= (-1 * cloud.contentSize.width)) {
             // Make the clouds float, vary its height by \pm 0.1 cloud y position.
-            float newPosition = cloud.position.y + 0.1 sin(character.physicsBody.velocity.x * delta) * cloud.position.y;
+            float newPosition;
+            newPosition = cloud.position.y + 0.1 sin(character.physicsBody.velocity.x * delta) * cloud.position.y;
             cloud.position = ccp(cloud.position.x + 2 * cloud.contentSize.width, newPosition);
         }
     }
